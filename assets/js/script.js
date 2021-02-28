@@ -1,4 +1,5 @@
 var timerEl = document.getElementById("time-remaining");
+var startQuiz = document.getElementById("start-quiz");
 
 // Timer that counts down from 75
 function countdown() {
@@ -21,4 +22,7 @@ function countdown() {
     }, 1000);
 }
 
-countdown();
+startQuiz.addEventListener("click", function () {
+    countdown();
+});
+
