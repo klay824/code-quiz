@@ -10,17 +10,25 @@
 <body>
     <header>
         <div class="header-container">
-            <button class="high-scores">View High Scores</button>
+            <button id="high-scores">View High Scores</button>
             <h3>Time Remaing: <span id="time-remaining">75</span></h3>
         </div>
     </header>
 
     <main>
-        <div class="questions-container">
+        <div id="welcome-container">
             <h2>Coding Quiz Challenge!</h2>
-                <p>Answer as many of the following questions you can in 75 seconds. Each right answer buys you 5 additional seconds. Enter your initials after to save your score. Good luck!</p>
-                <ul id="choices"></ul>
+                <p>Answer as many of the following questions you can in 75 seconds. Each right answer buys you 5 additional seconds, but each wrong answer subtracts 5!. Enter your initials after to save your score. Good luck!</p>
                 <button id="start-quiz">Start</button>
+        </div>
+        <div id="questions-container">
+            <h2 id="question-title"></h2>
+            <div id="option-buttons">
+                <button id="option-one">Placeholder</button>
+                <button id="option-two">Placeholder</button>
+                <button id="option-three">Placeholder</button>
+                <button id="option-four">Placeholder</button>
+            </div>
         </div>
 
 
