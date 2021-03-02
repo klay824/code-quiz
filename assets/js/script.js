@@ -8,7 +8,9 @@ var optionOne = document.querySelector("#option-one");
 var optionTwo = document.querySelector("#option-two");
 var optionThree = document.querySelector("#option-three");
 var optionFour = document.querySelector("#option-four");
-var randomQuestion, timeLeft, currentQ;
+var highScores = document.querySelector("high-scores");
+var randomQuestion, timeLeft, currentQ, score;
+
 
 // Questions arrays
 var questionsArr = [
@@ -97,8 +99,9 @@ function countdown() {
 function startGame() {
     hideOnStart.style.visibility = "hidden";
     optionButtons.style.visibility = "visible";
-    currentQ = 0
-    newQuestion()
+    currentQ = 0;
+    score = 0;
+    newQuestion();
 }
 
 // function to generate a random question
@@ -126,12 +129,20 @@ function checkAnswerAndGo(event){
     var chosenAnswer = event.target.textContent
     if(chosenAnswer == questionsArr[randomQuestion].correctAnswer) {
         timeLeft += 15;
+        score += 10;
         //score
     }else {
         timeLeft -= 15;
     }
     questionsArr.splice(randomQuestion, 1)
     newQuestion();
+    localStorage.setItem("score", JSON.stringify(score));
+}
+
+
+
+function endOfGame() {
+
 }
 
 // Event listener
