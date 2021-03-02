@@ -4,11 +4,12 @@ var startQuiz = document.getElementById("start-quiz");
 var optionButtons = document.getElementById("option-buttons");
 var hideOnStart = document.getElementById("welcome-container");
 var questionSection = document.getElementById("questions-container");
+var questionTitle = document.querySelector("#question-title");
 var optionOne = document.querySelector("#option-one");
 var optionTwo = document.querySelector("#option-two");
 var optionThree = document.querySelector("#option-three");
 var optionFour = document.querySelector("#option-four");
-var highScores = document.querySelector("high-scores");
+var allDone = document.querySelector(".enter-initials");
 var randomQuestion, timeLeft, currentQ, score;
 
 
@@ -109,18 +110,15 @@ function newQuestion(){
     
     if(currentQ < questionsArr.length){
         randomQuestion = Math.floor(Math.random() * (questionsArr.length));
-        
-        
-        document.querySelector("#question-title").textContent = questionsArr[randomQuestion].question
+
+        questionTitle.textContent = questionsArr[randomQuestion].question
         
         optionOne.textContent = questionsArr[randomQuestion].answers.A
         optionTwo.textContent = questionsArr[randomQuestion].answers.B
         optionThree.textContent = questionsArr[randomQuestion].answers.C
         optionFour.textContent = questionsArr[randomQuestion].answers.D
     }else {
-        //game over function later
-        // localStorage.setItem("highscore", JSON.stringify("test"))
-        // localStorage.getItem("highscore")
+        endOfQuiz();
     }
     
 }
@@ -130,19 +128,24 @@ function checkAnswerAndGo(event){
     if(chosenAnswer == questionsArr[randomQuestion].correctAnswer) {
         timeLeft += 15;
         score += 10;
-        //score
     }else {
         timeLeft -= 15;
     }
     questionsArr.splice(randomQuestion, 1)
     newQuestion();
-    localStorage.setItem("score", JSON.stringify(score));
 }
 
 
 
-function endOfGame() {
-
+function endOfQuiz() {
+    optionButtons.style.visibility = "hidden";
+    questionTitle.style.visibility = "hidden";
+    allDone.style.visibility = "visible";
+    localStorage.setItem("score", JSON.stringify(score));
+    var finalScore = JSON.parse(localStorage.getItem("score"));
+    document.querySelector(".final").innerHTML = score.finalScore;
+    console.log(finalScore);
+    
 }
 
 // Event listener
