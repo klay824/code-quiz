@@ -168,3 +168,9 @@ p {
     max-width: 250px;
     cursor: pointer;
 }
+
+.enter-initials {
+    visibility: hidden;
+    
+
+}
