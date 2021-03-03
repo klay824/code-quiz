@@ -10,6 +10,8 @@ var optionTwo = document.querySelector("#option-two");
 var optionThree = document.querySelector("#option-three");
 var optionFour = document.querySelector("#option-four");
 var allDone = document.querySelector(".enter-initials");
+var initials = document.querySelector("#initials");
+var saveBtn = document.querySelector("#save");
 var randomQuestion, timeLeft, currentQ, score;
 
 
@@ -117,7 +119,7 @@ function newQuestion(){
         optionTwo.textContent = questionsArr[randomQuestion].answers.B
         optionThree.textContent = questionsArr[randomQuestion].answers.C
         optionFour.textContent = questionsArr[randomQuestion].answers.D
-    }else {
+    } else {
         endOfQuiz();
     }
     
@@ -135,7 +137,12 @@ function checkAnswerAndGo(event){
     newQuestion();
 }
 
-
+function saveInitials() {
+    var enterInitials = {
+        initials: initials.value
+    }
+    localStorage.setItem("enterInitials", JSON.stringify(enterInitials));
+}
 
 function endOfQuiz() {
     optionButtons.style.visibility = "hidden";
@@ -143,9 +150,8 @@ function endOfQuiz() {
     allDone.style.visibility = "visible";
     localStorage.setItem("score", JSON.stringify(score));
     var finalScore = JSON.parse(localStorage.getItem("score"));
-    document.querySelector(".final").innerHTML = score.finalScore;
-    console.log(finalScore);
-    
+    document.querySelector(".final").innerHTML = finalScore;
+    saveInitials();
 }
 
 // Event listener
@@ -159,3 +165,10 @@ optionTwo.addEventListener("click", checkAnswerAndGo)
 optionThree.addEventListener("click", checkAnswerAndGo)
 optionFour.addEventListener("click", checkAnswerAndGo)
 
+
+saveBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    saveInitials();
+})
+    
+    
