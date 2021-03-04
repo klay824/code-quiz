@@ -11,7 +11,6 @@ var optionThree = document.querySelector("#option-three");
 var optionFour = document.querySelector("#option-four");
 var allDone = document.querySelector(".enter-initials");
 var timeIsUp = document.querySelector("#time-is-up-container");
-// var initials = document.querySelector("#initials");
 var saveBtn = document.querySelector("#save");
 var randomQuestion, timeLeft, currentQ, score;
 
@@ -181,15 +180,15 @@ function checkAnswerAndGo(event){
     }
     questionsArr.splice(randomQuestion, 1)
     newQuestion();
-    console.log(score);
+    // console.log(score);
 }
 
 function addScore () {
-    userNameInput = document.getElementById("initials").value
+    var initialsInput = document.getElementById("initials").value
     
     // create a new object with name and score keys
 var newScore = {
-        name: userNameInput,
+        name: initialsInput,
         finalScore: score
     };
     // check if there are scores in local storage first(get it)
