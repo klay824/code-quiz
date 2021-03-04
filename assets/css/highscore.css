@@ -5,13 +5,14 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
+    background-color: rgb(84, 78, 151);
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 20px;
+    border-bottom: rgb(47, 43, 95) solid 15px;
+    background-color: white;
 }
 
 #play-again {
@@ -23,7 +24,52 @@ body {
     padding: 10px;
     line-height: 8px;
     margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     max-width: 150px;
     cursor: pointer;
+}
+
+main {
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: white;
+    border-width: 15px;
+    border-color: rgb(47, 43, 95);
+    border-style: solid;
+}
+
+#high-score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+    font-size: 70px;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+#scores-list {
+    text-align: center;
+    padding: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 40px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    border-color: white;
+    border-width: 5px;
+    border-style: solid;
+    background-color: rgb(47, 43, 95);
+    color: white;
 }
