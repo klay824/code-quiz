@@ -10,6 +10,7 @@ var optionTwo = document.querySelector("#option-two");
 var optionThree = document.querySelector("#option-three");
 var optionFour = document.querySelector("#option-four");
 var allDone = document.querySelector(".enter-initials");
+var timeIsUp = document.querySelector("#time-is-up-container");
 // var initials = document.querySelector("#initials");
 var saveBtn = document.querySelector("#save");
 var randomQuestion, timeLeft, currentQ, score;
@@ -90,18 +91,23 @@ function countdown() {
             timerEl.textContent = timeLeft;
             // Decrement `timeLeft` by 1
             timeLeft--;
-        if(timeLeft<=0 || currentQ >= questionsArr.length) {
+        if(timeLeft<=0) {
             // Once `timeLeft` gets to 0 and no questions are left, set `timerEl` quiz over
             timerEl.textContent = "Game over!";
+            questionSection.style.display = "none";
+            timeIsUp.style.display = "flex";
             // Use `clearInterval()` to stop the timer
+            clearInterval(timeInterval);
+        }
+        if(currentQ >= questionsArr.length) {
             clearInterval(timeInterval);
         }
     }, 1000);
 }
 
 function startGame() {
-    hideOnStart.style.visibility = "hidden";
-    optionButtons.style.visibility = "visible";
+    hideOnStart.style.display = "none";
+    questionSection.style.display = "flex";
     currentQ = 0;
     score = 0;
     newQuestion();
@@ -156,9 +162,8 @@ var newScore = {
 
 
 function endOfQuiz() {
-    optionButtons.style.visibility = "hidden";
-    questionTitle.style.visibility = "hidden";
-    allDone.style.visibility = "visible";
+    questionSection.style.display = "none";
+    allDone.style.display = "block";
     localStorage.setItem("score", JSON.stringify(score));
     var finalScore = JSON.parse(localStorage.getItem("score"));
     document.querySelector(".final").innerHTML = finalScore;
