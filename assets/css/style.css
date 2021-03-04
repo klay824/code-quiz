@@ -52,7 +52,7 @@ main {
 #welcome-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 h2 {
@@ -94,7 +94,7 @@ p {
 }
 
 #questions-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
 }
@@ -102,7 +102,6 @@ p {
 #option-buttons {
     display: flex;
     flex-wrap: wrap;
-    visibility: hidden;
 }
 
 #option-one {
@@ -181,8 +180,30 @@ p {
     cursor: pointer;
 }
 
+#time-is-up-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#play-again {
+    font-size: 16px;
+    color: white;
+    background-color: rgb(47, 43, 95);
+    height: 30px;
+    width: 400px;
+    padding: 10px;
+    line-height: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 20px;
+    max-width: 150px;
+    cursor: pointer;
+}
+
 .enter-initials {
-    visibility: hidden;
+    display: none;
     padding: 15px;
 }
 
