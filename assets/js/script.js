@@ -10,7 +10,7 @@ var optionTwo = document.querySelector("#option-two");
 var optionThree = document.querySelector("#option-three");
 var optionFour = document.querySelector("#option-four");
 var allDone = document.querySelector(".enter-initials");
-var initials = document.querySelector("#initials");
+// var initials = document.querySelector("#initials");
 var saveBtn = document.querySelector("#save");
 var randomQuestion, timeLeft, currentQ, score;
 
@@ -137,12 +137,33 @@ function checkAnswerAndGo(event){
     newQuestion();
 }
 
-function saveInitials() {
-    var enterInitials = {
-        initials: initials.value
-    }
-    localStorage.setItem("enterInitials", JSON.stringify(enterInitials));
+// function saveInitials() {
+//     var enterInitials = {
+//         initials: initials.value
+//     }
+//     localStorage.setItem("enterInitials", JSON.stringify(enterInitials));
+//     console.log(JSON.parse(localStorage.getItem("enterInitials")));
+    
+// }
+
+function addScore () {
+    userNameInput = document.getElementById("initials").value
+    
+    // create a new object with name and score keys
+var newScore = {
+        name: userNameInput,
+        finalScore: score
+    };
+    // check if there are scores in local storage first(get it)
+    //if not, make a new/blank array
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    // push object into score array
+    highScores.push(newScore)
+    // turn objects into an array of strings then put it into local storage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
 }
+
 
 function endOfQuiz() {
     optionButtons.style.visibility = "hidden";
@@ -151,7 +172,6 @@ function endOfQuiz() {
     localStorage.setItem("score", JSON.stringify(score));
     var finalScore = JSON.parse(localStorage.getItem("score"));
     document.querySelector(".final").innerHTML = finalScore;
-    saveInitials();
 }
 
 // Event listener
@@ -165,10 +185,9 @@ optionTwo.addEventListener("click", checkAnswerAndGo)
 optionThree.addEventListener("click", checkAnswerAndGo)
 optionFour.addEventListener("click", checkAnswerAndGo)
 
-
 saveBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    saveInitials();
+    addScore();
+    window.location.href = "highscore.html"
 })
-    
     
