@@ -77,6 +77,46 @@ var questionsArr = [
             D: "startGame;"
         },
         correctAnswer: "startGame();"
+    },
+    {
+        question: "Which of the following methods brings up a box to ask the user to make a yes or no choice?",
+        answers: {
+            A: "prompt()",
+            B: "confirm()",
+            C: "inquiry()",
+            D: "alert()"
+        },
+        correctAnswer: "confirm()"
+    },
+    {
+        question: "How do you write a conditional statement if the variable x is NOT equal to 0?",
+        answers: {
+            A: "if(x > 0)",
+            B: "if(x =/ 0)",
+            C: "if(x =- 0)",
+            D: "if(x !== 0)"
+        },
+        correctAnswer: "if(x !== 0)"
+    },
+    {
+        question: "What logical operator is used to compare two variables or values?",
+        answers: {
+            A: "||",
+            B: "&&",
+            C: "<>",
+            D: "$$"
+        },
+        correctAnswer: "||"
+    },
+    {
+        question: "Which of the following is a returned value of a boolean?",
+        answers: {
+            A: "A string",
+            B: "false",
+            C: "A number",
+            D: "A function"
+        },
+        correctAnswer: "false"
     }
 ];
 
@@ -141,6 +181,7 @@ function checkAnswerAndGo(event){
     }
     questionsArr.splice(randomQuestion, 1)
     newQuestion();
+    console.log(score);
 }
 
 function addScore () {
