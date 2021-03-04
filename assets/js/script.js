@@ -137,15 +137,6 @@ function checkAnswerAndGo(event){
     newQuestion();
 }
 
-// function saveInitials() {
-//     var enterInitials = {
-//         initials: initials.value
-//     }
-//     localStorage.setItem("enterInitials", JSON.stringify(enterInitials));
-//     console.log(JSON.parse(localStorage.getItem("enterInitials")));
-    
-// }
-
 function addScore () {
     userNameInput = document.getElementById("initials").value
     
@@ -161,7 +152,6 @@ var newScore = {
     highScores.push(newScore)
     // turn objects into an array of strings then put it into local storage
     localStorage.setItem("highScores", JSON.stringify(highScores));
-
 }
 
 
